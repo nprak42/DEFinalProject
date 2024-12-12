@@ -1,0 +1,28 @@
+# Use Python base image
+FROM python:3.9-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy requirements.txt and install dependencies
+COPY et_scripts/requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+# Copy the entire 'et_scripts' folder into the container
+COPY et_scripts /app/et_scripts
+
+# Expose port 5001 for the Flask API
+EXPOSE 5001
+
+# Set the FLASK_APP environment variable (optional, if necessary)
+ENV FLASK_APP=et_scripts.flask_app
+
+# Install Gunicorn
+RUN pip install gunicorn
+
+# Run the Flask app using Gunicorn (WSGI server)
+CMD ["gunicorn", "--bind", "0.0.0.0:5001", "et_scripts.flask_app:app"]
