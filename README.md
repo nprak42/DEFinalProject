@@ -31,16 +31,16 @@ project/
 |-- dashboard/
 |   |-- requirements_dashboard.txt # requirements for docker                   
 |   |-- load_data.py              # Streamlit app for data visualization.
-|-- requirements.txt              # Python dependencies.
-|-- README.md                     # Project documentation.
+|-- Dockerfile.flask_app          # dockerfile for flask
+|-- Dockerfile.load_data          # dockerfile for dashboard
+|-- docker-compose.yml            # dockerfile- compose config.
 ```
 
 ## Setup Instructions
 
 ### Prerequisites
 1. **Install Python 3.8 or higher**
-2. **Install PostgreSQL** (local or Amazon RDS instance)
-3. **Set up AWS credentials** (if using RDS)
+2. **Install PostgreSQL** 
 
 
 ## How It Works
@@ -61,13 +61,13 @@ project/
 1. Launch the Streamlit app.
 2. Enter stock tickers, start date, and end date in the dashboard.
 3. Fetch and view historical market data and transformed metrics.
-4. Explore quarterly income statements for the selected tickers.
 
 ## Future Improvements
 - Add support for more financial metrics.
 - Implement user authentication for the dashboard.
 - Optimize data pipeline for larger datasets.
-- 
+- Adding a predicition feature
+
 ## Contact
 For questions or feedback, please reach out to niranjanprak@umass.edu
 
