@@ -1,7 +1,7 @@
 # ETL Pipeline for Stock Data
 
 ## Project Overview
-This project implements an ETL (Extract, Transform, Load) pipeline for financial stock data. The pipeline fetches stock data from Yahoo Finance, performs transformations, and stores the results in an Amazon RDS database using PostgreSQL. Finally, the data is visualized in a Streamlit dashboard, which interacts with the backend via a Flask app.
+This project implements an ETL (Extract, Transform, Load) pipeline for financial stock data. The pipeline fetches stock data from Yahoo Finance, performs transformations, and stores the results in an Amazon RDS database using PostgreSQL. 
 
 ## Features
 - **Data Extraction**: Fetch historical stock prices and quarterly income statements using the Yahoo Finance API (`yfinance`).
