@@ -25,14 +25,12 @@ project/
 |
 |-- et_scripts/
 |   |-- Extract_data_Yfinance.py  # Scripts for data extraction and transformation.
-|   |-- db_operations.py          # Functions for database interactions.
+|   |-- flask_app.py              # Functions for database interactions.
+|   |-- requirements.txt          # requirements for docker
 |
 |-- dashboard/
-|   |-- app.py                    # Streamlit app for data visualization.
-|
-|-- flask_app/
-|   |-- app.py                    # Flask app for API endpoints.
-|
+|   |-- requirements_dashboard.txt # requirements for docker                   
+|   |-- load_data.py              # Streamlit app for data visualization.
 |-- requirements.txt              # Python dependencies.
 |-- README.md                     # Project documentation.
 ```
