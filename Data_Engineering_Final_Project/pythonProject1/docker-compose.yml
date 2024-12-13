@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  etl_service:
+    build:
+      context: .
+      dockerfile: Dockerfile.flask
+    volumes:
+      - ./et_scripts:/app/et_scripts
+    environment:
+      - FLASK_ENV=development
+    ports:
+      - "5001:5001"  # Expose Flask app on port 5000
+
+  streamlit_dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.load_data
+    volumes:
+      - ./dashboard:/app/
+    ports:
+      - "8501:8501"  # Expose Streamlit on port 8501

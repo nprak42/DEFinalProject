@@ -1,0 +1,16 @@
+POST http://0.0.0.0:5001/fetch_quarterly_income_statement
+Content-Type: application/json
+
+{
+  "tickers": ["AAPL", "MSFT"],
+  "quarterly_to_keep": [
+    "Normalized EBITDA",
+    "EBITDA",
+    "EBIT",
+    "Operating Expense",
+    "Gross Profit",
+    "Cost Of Revenue",
+    "Total Revenue",
+    "Operating Revenue"
+  ]
+}
