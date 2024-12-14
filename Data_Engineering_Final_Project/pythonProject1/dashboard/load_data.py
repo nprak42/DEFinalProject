@@ -51,28 +51,6 @@ if st.button("Fetch Market Data"):
     except Exception as e:
         st.error(f"Error fetching market data: {e}")
 
-# Streamlit form for fetching and displaying quarterly income statements
-st.header("Fetch Quarterly Income Statements")
-tickers_income_input = st.text_input("Enter Tickers for Income Statement (comma separated):", "AAPL,MSFT,TSLA")
-quarters_to_keep = st.text_input("Enter Quarters to Keep (comma separated, e.g., 'Q1 2023, Q2 2023')", "Q1 2023, Q2 2023")
-
-if st.button("Fetch Income Statements"):
-    tickers = tickers_income_input.split(",")
-    quarters = quarters_to_keep.split(",")
-    try:
-        # Fetch income statements and store in database
-        income_statements = fetch_quarterly_income_statement(tickers, quarters)
-        store_to_postgres(income_statements, "filtered_income_statements", DB_URL)
-
-        # Fetch income statements from database
-        engine = create_engine(DB_URL)
-        income_statements_db = pd.read_sql("SELECT * FROM filtered_income_statements", engine)
-
-        # Display the income statements
-        st.subheader("Fetched Quarterly Income Statements")
-        st.dataframe(income_statements_db)
-    except Exception as e:
-        st.error(f"Error fetching income statements: {e}")
 
 # Streamlit form for fetching and displaying transformed data
 st.header("View Transformed Market Data")
